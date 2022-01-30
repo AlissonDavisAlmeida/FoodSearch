@@ -8,7 +8,7 @@ const ResultList = (props) => {
        <Text style={styles.titulo}>{props.titulo}</Text> 
         <FlatList data={props.resultado} renderItem={({item})=>{
             return <Restaurante restaurante={item}/>
-        }} keyExtractor={(resultado)=>resultado.id} horizontal/>
+        }} keyExtractor={(resultado)=>resultado.id} horizontal showsHorizontalScrollIndicator={false}/>
     </View>
   );
 };
@@ -18,13 +18,13 @@ export default ResultList;
 const styles = StyleSheet.create({
     main: {
      display:"flex",
-     alignItems:'flex-start',
-     width:300,
-     padding:10   
+     alignItems:'center',
+     
+     padding:0   
     },
     titulo : {
         fontWeight:"700",
         fontSize:20,
-        
+        marginBottom:5
     }
 });

@@ -20,7 +20,6 @@ const SearchScreen = ({navigation}) => {
     }
 
     return (
-            <ScrollView scrollEnabled>
         <View style={styles.main}>
             <SearchBar 
             termoPesquisa={termoPesquisa} 
@@ -28,12 +27,13 @@ const SearchScreen = ({navigation}) => {
             onTermoSubmit={()=>searchAPI(termoPesquisa)}/>
 
             {mensagemErro ? <Text>Ocorreu um erro</Text>: null}
-            <ResultList resultado= {filtrarResultadosPorPreco("$")} titulo={`Cost Effective`}/>
-            <ResultList resultado= {filtrarResultadosPorPreco("$$")} titulo={`Bit Pricier`}/>
-            <ResultList resultado= {filtrarResultadosPorPreco("$$$")} titulo={`Big Spender`}/>
+            <ScrollView scrollEnabled>
+            <ResultList resultado= {filtrarResultadosPorPreco("$")} titulo={`Melhores preços`}/>
+            <ResultList resultado= {filtrarResultadosPorPreco("$$")} titulo={`Preços Médios`}/>
+            <ResultList resultado= {filtrarResultadosPorPreco("$$$")} titulo={`Preços Altos`}/>
             
-        </View>
            </ScrollView>
+        </View>
     )
 }
 
@@ -42,6 +42,6 @@ export default SearchScreen
 const styles = StyleSheet.create({
     main :{
         display:'flex',
-        alignItems:"center"
+        flex:1
     }
 })
